@@ -7,6 +7,10 @@
  }
  .item{
   padding: 0 0 5px 10px;
+ 
+ }
+ .item a{
+  color:black;
  }
  .item:last-child{
   padding-top: 10px;
