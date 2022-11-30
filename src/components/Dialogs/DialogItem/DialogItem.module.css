@@ -1,0 +1,9 @@
+.dialog{
+   padding: 10px 0 0 20px;
+ }
+ .dialog a.active{
+   color:gold;
+}
+.dialog a.color{
+   color:black;
+   }

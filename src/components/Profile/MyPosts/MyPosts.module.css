@@ -1,3 +1,7 @@
+.myPosts__wrap{
+   padding-left: 15px;
+}
+
 .addText{
    display:flex;
    flex-direction: column;
