@@ -4,22 +4,26 @@ import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 function App(props) {
   return (
-   <BrowserRouter>
     <div className="app__wrapper">
       <Header />
       <Navbar />
       <div className="wrapp__profile">
-      <Routes>
-        <Route path='/dialogs/*' element={<Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData}/>} />
-        <Route path='/profile' element={<Profile />} />
-      </Routes>
+        <Routes>
+          <Route path='/dialogs/*' element={<Dialogs 
+          dialogsPage={props.state.dialogsPage}
+          addMessage={props.addMessage}
+          updeteNewMessageText={props.updeteNewMessageText} />} />
+          <Route path='/profile' element={<Profile
+            profilePage={props.state.profilePage}
+            addPost={props.addPost}
+            updateNewPostText={props.updateNewPostText} />} />
+        </Routes>
       </div>
     </div>
-   </BrowserRouter>
   );
 }
 

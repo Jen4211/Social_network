@@ -22,4 +22,20 @@ a:focus,a:active{outline:none;}
   grid-area: w;
   background-color:rgb(224, 87, 107);
 }
+.app__wrapper button{
+  display: block;
+  height: 25px;
+  border-radius: 10px;
+}
+.app__wrapper button:hover{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); 
+}
+.app__wrapper textarea{
+  background-color:bisque;
+  width: 70%;
+  height: 50px;
+  border-radius: 5px;
+  padding-left: 5px;
+}
+
 
