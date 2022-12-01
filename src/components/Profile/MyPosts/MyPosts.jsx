@@ -9,7 +9,9 @@ const MyPosts = (props) => {
       { id: 1, message: "Hi, how are you?", likeCount: 12 },
       { id: 2, message: "It is my first post.", likeCount: 20 },
       { id: 3, message: "What do you do?", likeCount: 10 }
-   ]
+   ];
+
+   let postsElement = postsData.map(p => <Post key={p.id} message={p.message} likeCount={p.likeCount} />)
 
    return (
       <div className={style.myPosts__wrap}>
@@ -18,12 +20,7 @@ const MyPosts = (props) => {
             <textarea ></textarea>
             <button>add Post</button>
          </div>
-         <Post message={postsData[0].message}
-            likeCount={postsData[0].likeCount}
-            id={postsData[0].id} />
-         <Post message={postsData[1].message}
-            likeCount={postsData[1].likeCount}
-            id={postsData[1].id} />
+         {postsElement}
       </div>
    )
 };
