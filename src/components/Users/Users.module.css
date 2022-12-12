@@ -1,0 +1,38 @@
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrap_logo{
+    margin: 10px;
+}
+
+.wrap_logo img{
+    width: 60px;
+    border-radius: 50%;
+    height: 60px;
+ } 
+
+ .wrap_info{
+    background-color: bisque;
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin: 10px 20px 10px 0;
+ }
+
+ .wrap_name {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px;
+ }
+
+ .wrap_adres{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px;
+ }

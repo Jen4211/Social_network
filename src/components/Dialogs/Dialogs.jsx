@@ -12,12 +12,16 @@ const Dialogs = (props) => {
 
    let messagesElement = props.dialogsPage.messagesData.map(m => <Message key={m.id} message={m.message} id={m.id} />);
 
-
-   let onAddMessage = () => {
+   const onKeyPressHender = (event) => {
+      if (event.charCode === 13) {
+        props.addMessage();
+      }
+   };
+   const onAddMessage = () => {
       props.addMessage();
    };
 
-   let onMessageChange = (event) => {
+   const onMessageChange = (event) => {
       let text = event.target.value;
       props.onMessageChange(text);
    }
@@ -33,6 +37,7 @@ const Dialogs = (props) => {
                <textarea
                   placeholder='Enter your message'
                   onChange={onMessageChange}
+                  onKeyPress={onKeyPressHender}
                   value={props.dialogsPage.newMessagesText}></textarea>
                <button onClick={onAddMessage}>Add message</button>
             </div>

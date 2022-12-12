@@ -5,6 +5,12 @@ import Post from './Post/Post';
 
 const MyPosts = (props) => {
 
+   const onKeyPressHender = (event) => {
+      if (event.charCode === 13) {
+         props.addPost();
+      }
+   };
+
    let onAddPost = () => {
       props.addPost();
    }
@@ -21,7 +27,8 @@ const MyPosts = (props) => {
          <h3>My posts</h3>
          <div className={style.addText}>
             <textarea onChange={onPostChange}
-            placeholder='Enter new post'
+               onKeyPress={onKeyPressHender}
+               placeholder='Enter new post'
                value={props.newPostText}></textarea>
             <button onClick={onAddPost}>add Post</button>
          </div>
