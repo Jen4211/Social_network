@@ -1,13 +1,15 @@
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const SET_TOTAL_USERS_PAGE = 'SET_TOTAL_USERS_PAGE';
 
-let initiaState = {
-    users: [
-        { id: 1, photo: 'https://i.etsystatic.com/16080595/r/il/d3dd03/2600962297/il_570xN.2600962297_arhj.jpg', followed: false, fullName: 'Jenia', status: 'I am good guy', location: { city: 'Minsk', country: 'Belarus' } },
-        { id: 2, photo: 'https://i.etsystatic.com/16080595/r/il/d3dd03/2600962297/il_570xN.2600962297_arhj.jpg', followed: true, fullName: 'Sasha', status: 'I am good guy to', location: { city: 'Kiev', country: 'Ukraine' } },
-        { id: 3, photo: 'https://i.etsystatic.com/16080595/r/il/d3dd03/2600962297/il_570xN.2600962297_arhj.jpg', followed: false, fullName: 'Vova', status: 'I am good guy to', location: { city: 'Pinsk', country: 'Belarus' } },
-    ]
+let initiaState =
+{
+    users: [],
+    pageSize: 5,
+    totalUsersCount: 0,
+    currentPage: 1
 }
 
 const usersReducer = (state = initiaState, action) => {
@@ -22,7 +24,6 @@ const usersReducer = (state = initiaState, action) => {
                     return u;
                 })
             }
-
         case UNFOLLOW:
             return {
                 ...state,
@@ -33,11 +34,21 @@ const usersReducer = (state = initiaState, action) => {
                     return u;
                 })
             }
-            case SET_USERS:
-               return {
+        case SET_USERS:
+            return {
                 ...state,
-                users: [...state.users, ...action.users]
-               } 
+                users: action.users
+            }
+        case SET_CURRENT_PAGE:
+            return {
+                ...state,
+                currentPage: action.currentPage
+            }
+        case SET_TOTAL_USERS_PAGE:
+            return {
+                ...state,
+                totalUsersCount: action.count
+            }
         default:
             return state;
     }
@@ -62,5 +73,19 @@ export const setUsersAC = (users) => {
         users
     }
 };
+
+export const setCurrentPageAC = (currentPage) => {
+    return {
+        type: SET_CURRENT_PAGE,
+        currentPage
+    }
+};
+
+export const setTotalUsersCountAC = (totalUsersCount) => {
+    return {
+        type: SET_TOTAL_USERS_PAGE,
+        count: totalUsersCount
+    }
+}
 
 export default usersReducer;
