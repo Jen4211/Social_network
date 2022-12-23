@@ -7,7 +7,7 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 const Profile = (props) => {
    return (
       <section className={style.wrapp__profile}>
-         <ProfileInfo />
+         <ProfileInfo profile={props.profile}/>
          <MyPostsContainer store={props.store} />
       </section>
    )
